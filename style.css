@@ -15,4 +15,22 @@
   font-family: "Sharp-Sans-No1-Extrabold";
   src: url("./assets/SharpSans/Sharp-Sans-No1-Extrabold.woff");
 }
+
+.wrap {
+  padding: 0 5vw;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 4vw;
+}
+
+.logo {
+  max-height: 100%;
+}
 /*# sourceMappingURL=style.css.map */
