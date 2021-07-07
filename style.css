@@ -1,11 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: "Sharp-Sans-No1-Medium";
-}
-
 @font-face {
   font-family: "Sharp-Sans-No1-Medium";
   src: url("./assets/SharpSans/Sharp-Sans-No1-Medium.woff");
@@ -16,8 +8,16 @@
   src: url("./assets/SharpSans/Sharp-Sans-No1-Extrabold.woff");
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Sharp-Sans-No1-Medium";
+}
+
 .wrap {
-  padding: 0 5vw;
+  padding: 1vw 5vw 0;
 }
 
 .header {
@@ -31,6 +31,98 @@
 }
 
 .logo {
-  max-height: 100%;
+  max-height: 70%;
+}
+
+.section-typing {
+  height: calc(100vh - 5vw);
+}
+
+.typing-area {
+  margin-top: 30vh;
+}
+
+.typing-input {
+  width: 70%;
+  border: 0;
+  border-left: solid 1px #000;
+  font: 6vw "Sharp-Sans-No1-Extrabold";
+  outline: none;
+}
+
+.typing-input:focus {
+  border-bottom: solid 1px #0005ee;
+  border-left: 0;
+}
+
+.typing-input::-webkit-input-placeholder {
+  color: #f1f1f1;
+}
+
+.typing-input:-ms-input-placeholder {
+  color: #f1f1f1;
+}
+
+.typing-input::-ms-input-placeholder {
+  color: #f1f1f1;
+}
+
+.typing-input::placeholder {
+  color: #f1f1f1;
+}
+
+.section-typing-button-container {
+  display: inline-block;
+  position: relative;
+  width: 29%;
+}
+
+.button {
+  width: 50%;
+  height: 4vw;
+  margin-left: 25%;
+  border: 2px solid #0005ee;
+  border-radius: 8px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  font-size: 1.2vw;
+  background-color: #fff;
+}
+
+.phrases-area {
+  position: relative;
+  margin-top: 10vh;
+}
+
+.phrases-container {
+  display: inline-block;
+  width: 70%;
+}
+
+.press-effect-container {
+  margin-top: 10vh;
+}
+
+.press-effect-container::before, .press-effect-container::after {
+  content: '';
+  position: absolute;
+  left: 25%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.press-effect-container::before {
+  top: 10%;
+  width: calc(50% - 4px);
+  border: solid 2px #0005ee;
+  background-color: #6374f9;
+}
+
+.press-effect-container::after {
+  left: calc(25% + 2px);
+  top: 30%;
+  width: calc(50% - 4px);
+  background-color: #d3d7fc;
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */

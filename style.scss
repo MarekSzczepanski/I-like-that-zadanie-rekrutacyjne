@@ -1,9 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Sharp-Sans-No1-Medium";
-}
+@import 'variables';
 @font-face { 
     font-family: "Sharp-Sans-No1-Medium"; 
     src: url('./assets/SharpSans/Sharp-Sans-No1-Medium.woff'); 
@@ -12,14 +7,91 @@
     font-family: "Sharp-Sans-No1-Extrabold"; 
     src: url('./assets/SharpSans/Sharp-Sans-No1-Extrabold.woff'); 
 }
-.wrap {
-    padding: 0 5vw;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sharp-Sans-No1-Medium";
 }
+.wrap {
+    padding: 1vw 5vw 0;
+}
+// Header
 .header {
     display: flex;
     align-items: center;
     height: 4vw;
 }
 .logo {
-    max-height: 100%;
+    max-height: 70%;
+}
+// Typing Section
+.section-typing {
+    height: calc(100vh - 5vw);
+}
+.typing-area {
+   margin-top: 30vh;
+}
+.typing-input {
+    width: 70%;
+    border: 0;
+    border-left: solid 1px #000;
+    font: 6vw "Sharp-Sans-No1-Extrabold";
+    outline: none;
+    &:focus {
+        border-bottom: solid 1px $color1;
+        border-left: 0;
+    }
+    &::placeholder {
+        color: $color4;
+    }
+}
+.section-typing-button-container {
+    display: inline-block;
+    position: relative;
+    width: 29%;
+}
+.button {
+    width: 50%;
+    height: 4vw;
+    margin-left: 25%;
+    border: 2px solid $color1;
+    border-radius: 8px;
+    transform: translateY(0);
+    font-size: 1.2vw;
+    background-color: #fff;
+}
+.phrases-area {
+    position: relative;
+    margin-top: 10vh;
+}
+.phrases-container {
+    display: inline-block;
+    width: 70%;
+}
+.press-effect-container {
+    margin-top: 10vh;
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 25%;
+        height: 100%;
+        border-radius: 8px;
+    }
+    &::before {
+        top: 10%;
+        width: calc(50% - 4px);
+        border: solid 2px $color1;
+        background-color: $color2;
+    }
+    &::after {
+        left: calc(25% + 2px);
+        top: 30%;
+        width: calc(50% - 4px);
+        background-color: $color3;
+        z-index: -1;
+    }
+}
+.press-effect {
+    
 }
