@@ -70,7 +70,8 @@
     width: 70%;
 }
 .press-effect-container {
-    margin-top: 10vh;
+    width: 50%;
+    margin-left: 25%;
     &::before, &::after {
         content: '';
         position: absolute;
@@ -89,9 +90,20 @@
         top: 30%;
         width: calc(50% - 4px);
         background-color: $color3;
+        transition: top .3s ease;
         z-index: -1;
     }
 }
-.press-effect {
-    
+.press-effect-container:hover::after {
+    top: 25%;
+    cursor: pointer;
+}
+.press-effect, .press-effect-container:hover > .press-effect {
+    width: 100%;
+    margin: 0;
+    transition: transform .3s ease;
+}
+.press-effect:hover {
+    transform: translateY(5%);
+    cursor: pointer;
 }

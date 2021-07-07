@@ -100,7 +100,8 @@
 }
 
 .press-effect-container {
-  margin-top: 10vh;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .press-effect-container::before, .press-effect-container::after {
@@ -123,6 +124,28 @@
   top: 30%;
   width: calc(50% - 4px);
   background-color: #d3d7fc;
+  -webkit-transition: top .3s ease;
+  transition: top .3s ease;
   z-index: -1;
+}
+
+.press-effect-container:hover::after {
+  top: 25%;
+  cursor: pointer;
+}
+
+.press-effect, .press-effect-container:hover > .press-effect {
+  width: 100%;
+  margin: 0;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+
+.press-effect:hover {
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
