@@ -8,11 +8,10 @@
     <title>Zadanie rektutacyjne - i like that</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="script.js"></script> 
 </head>
 
 <body>
-    <div class="wrap">
+    <div id="wrap">
         <header class="header">
             <img class="logo" src="assets/logo.png" href="#" title="logo" alt="logo"/>
         </header>
@@ -27,12 +26,12 @@
                 <div class="phrases-container"></div>
                 <div class="section-typing-button-container">
                     <div class="press-effect-container">
-                        <button class="button press-effect">Generate</button>
+                        <button data-button="generate" class="button press-effect">Generate</button>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-tshirt">
+        <section data-section="t-shirt" class="section-tshirt display-none">
             <div class="tshirt-area">
                 <img class="image-tshirt" src="assets/tshirt.png" title="product-visualisation" alt="t-shirt"/>
             </div>
@@ -64,6 +63,7 @@
             </div>
         </section>
     </div>
+    <script src="script.js"></script> 
 </body>
 
 </html>

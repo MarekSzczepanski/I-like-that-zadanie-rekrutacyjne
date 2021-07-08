@@ -16,7 +16,17 @@
   font-family: "Sharp-Sans-No1-Medium";
 }
 
-.wrap {
+#wrap .display-none {
+  display: none;
+}
+
+.display-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+#wrap {
   padding: 1vw 5vw 0;
 }
 
@@ -94,7 +104,7 @@
   margin-top: 10vh;
 }
 
-.phrases-container, .tshirt-area {
+.phrases-container {
   display: inline-block;
   width: 70%;
   height: 100%;
@@ -159,20 +169,24 @@
 }
 
 .tshirt-area {
-  height: 45vw;
+  width: 60vw;
+  height: 40vw;
+  margin-top: 10%;
+  border-bottom: solid 5vw #fff;
   background-color: #f7f7f7;
 }
 
 .image-tshirt {
   display: block;
-  width: 60%;
-  margin: 5vw auto 0;
+  max-height: 80%;
+  margin: 2vw auto 0;
 }
 
 .accordion-area {
   position: relative;
-  width: 29%;
-  height: 45vw;
+  width: 39%;
+  height: 30vw;
+  margin-top: 10%;
   padding-left: 1vw;
 }
 
@@ -189,7 +203,11 @@
 }
 
 .accordion-part.active {
-  height: 20vw;
+  height: 16vw;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 2vw;
 }
 
 .accordion-part.active .image-arrow {
@@ -246,7 +264,7 @@
 
 .accordion-area > .press-effect-container {
   position: absolute;
-  bottom: 1.3vw;
+  bottom: -3.8vw;
   width: 100%;
   margin: 0;
 }

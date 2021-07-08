@@ -13,7 +13,13 @@
     box-sizing: border-box;
     font-family: "Sharp-Sans-No1-Medium";
 }
-.wrap {
+#wrap .display-none {
+    display: none;
+}
+.display-flex {
+    display: flex !important; //jquery fadein
+}
+#wrap {
     padding: 1vw 5vw 0;
 }
 // Header
@@ -65,7 +71,7 @@
     position: relative;
     margin-top: 10vh;
 }
-.phrases-container, .tshirt-area {
+.phrases-container {
     display: inline-block;
     width: 70%;
     height: 100%;
@@ -115,18 +121,22 @@
     height: 100vh;
 }
 .tshirt-area {
-    height: 45vw;
+    width: 60vw;
+    height: 40vw;
+    margin-top: 10%;
+    border-bottom: solid 5vw #fff;
     background-color: $color5;
 }
 .image-tshirt {
     display: block;
-    width: 60%;
-    margin: 5vw auto 0;
+    max-height: 80%;
+    margin: 2vw auto 0;
 }
 .accordion-area {
     position: relative;
-    width: 29%;
-    height: 45vw;
+    width: 39%;
+    height: 30vw;
+    margin-top: 10%;
     padding-left: 1vw;
 }
 .accordion-part {
@@ -137,7 +147,9 @@
     border-bottom: 1px solid $color4;
 }
 .accordion-part.active {
-    height: 20vw;
+    height: 16vw;
+    align-items: flex-start;
+    padding-top: 2vw;
     & .image-arrow {
         transform: rotate(180deg);
     }
@@ -174,7 +186,7 @@
 }
 .accordion-area > .press-effect-container {
     position: absolute;
-    bottom: 1.3vw;
+    bottom: -3.8vw;
     width: 100%;
     margin: 0;
 }
