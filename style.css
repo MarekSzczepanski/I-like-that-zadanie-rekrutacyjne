@@ -232,6 +232,10 @@
   border: 2px dashed;
 }
 
+.tshirt-phrase {
+  margin-bottom: 1vw;
+}
+
 .accordion-area {
   position: relative;
   width: 39%;
