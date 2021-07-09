@@ -20,17 +20,16 @@ $(document).ready(() => {
     const add_phrase = () => {
         if (phrase_input.value && phrases_arr.length < 3) {
             generate_button_container.classList.remove("display-none");
-                phrases_arr.push(phrase_input.value);
-                for (let i=0; i<phrase_spans.length; i++) {
-                    if (phrase_spans[i].classList.contains("display-none")) {
-                        phrase_spans[i].childNodes[1].textContent = phrase_input.value;
-                        phrase_spans[i].classList.remove("display-none");
-                        phrases_container.appendChild(phrase_spans[i]);
-                        break;
-                    }
+            phrases_arr.push(phrase_input.value);
+            for (let i=0; i<phrase_spans.length; i++) {
+                if (phrase_spans[i].classList.contains("display-none")) {
+                    phrase_spans[i].childNodes[1].textContent = phrase_input.value;
+                    phrase_spans[i].classList.remove("display-none");
+                    phrases_container.appendChild(phrase_spans[i]);
+                    break;
                 }
-                phrase_input.value = "";
-
+            }
+            phrase_input.value = "";
         }
     }
     add_button.addEventListener("click", add_phrase);
