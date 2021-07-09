@@ -14,7 +14,7 @@
     font-family: "Sharp-Sans-No1-Medium";
 }
 #wrap .display-none {
-    //display: none;
+    display: none;
 }
 .display-flex {
     display: flex !important; //jquery fadein
@@ -62,19 +62,42 @@
     height: 4vw;
     margin-left: 25%;
     border: 2px solid $color1;
-    border-radius: 8px;
+    border-radius: $border-radius;
     transform: translateY(0);
     font-size: $font-size;
     background-color: #fff;
+    cursor: pointer;
 }
 .phrases-area {
     position: relative;
+    height: 7vw;
     margin-top: 10vh;
 }
 .phrases-container {
     display: inline-block;
     width: 70%;
     height: 100%;
+}
+.phrase {
+    position: relative;
+    margin-right: 1vw;
+    padding: .5vw 5vw .8vw 1vw;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    background-color: $color5;
+}
+.close-phrase {
+    position: absolute;
+    right: .5vw;
+    top: 50%;
+    transform: translateY(-60%);
+    padding: .5vw;
+    font-size: 1.5vw;
+    transition: color .3s ease;
+    &:hover {
+        cursor: pointer;
+        color: $color1;
+    }
 }
 .press-effect-container {
     position: relative;
@@ -84,7 +107,7 @@
         content: '';
         position: absolute;
         height: 4vw;
-        border-radius: 8px;
+        border-radius: $border-radius;
     }
     &::before {
         left: 0;
@@ -113,7 +136,6 @@
 }
 .press-effect:hover {
     transform: translateY(5%);
-    cursor: pointer;
 }
 //T-shirt Section
 .section-tshirt {
@@ -144,6 +166,13 @@
     display: block;
     max-height: 80%;
     margin: 2vw auto 0;
+}
+.tshirt-phrases-container {
+    position: relative;
+    width: 20%;
+    height: 45%;
+    margin: -37% 0 0 40%;
+    border: 2px dashed;
 }
 .accordion-area {
     position: relative;

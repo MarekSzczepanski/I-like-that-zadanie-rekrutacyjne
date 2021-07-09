@@ -16,6 +16,10 @@
   font-family: "Sharp-Sans-No1-Medium";
 }
 
+#wrap .display-none {
+  display: none;
+}
+
 .display-flex {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -93,10 +97,12 @@
           transform: translateY(0);
   font-size: 1.2vw;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .phrases-area {
   position: relative;
+  height: 7vw;
   margin-top: 10vh;
 }
 
@@ -104,6 +110,32 @@
   display: inline-block;
   width: 70%;
   height: 100%;
+}
+
+.phrase {
+  position: relative;
+  margin-right: 1vw;
+  padding: .5vw 5vw .8vw 1vw;
+  border-radius: 8px;
+  font-size: 1.2vw;
+  background-color: #f7f7f7;
+}
+
+.close-phrase {
+  position: absolute;
+  right: .5vw;
+  top: 50%;
+  -webkit-transform: translateY(-60%);
+          transform: translateY(-60%);
+  padding: .5vw;
+  font-size: 1.5vw;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.close-phrase:hover {
+  cursor: pointer;
+  color: #0005ee;
 }
 
 .press-effect-container {
@@ -154,7 +186,6 @@
 .press-effect:hover {
   -webkit-transform: translateY(5%);
           transform: translateY(5%);
-  cursor: pointer;
 }
 
 .section-tshirt {
@@ -191,6 +222,14 @@
   display: block;
   max-height: 80%;
   margin: 2vw auto 0;
+}
+
+.tshirt-phrases-container {
+  position: relative;
+  width: 20%;
+  height: 45%;
+  margin: -37% 0 0 40%;
+  border: 2px dashed;
 }
 
 .accordion-area {

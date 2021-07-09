@@ -17,23 +17,37 @@
         </header>
         <section class="section-typing">
             <div class="typing-area">
-                <input class="typing-input" type="text" placeholder="Type something...">
+                <input data-input="typing" class="typing-input" type="text" placeholder="Type something...">
                 <div class="section-typing-button-container">
-                    <button class="button">Add it!</button>
+                    <button data-button="add" class="button">Add it!</button>
                 </div>
             </div>
             <div class="phrases-area">
-                <div class="phrases-container"></div>
+                <div data-container="phrases" class="phrases-container">
+                    <span data-span="phrase" class="phrase display-none">
+                        <span class="phrase-text"></span>
+                        <span data-button="delete-phrase" class="close-phrase">x</span>
+                    </span>
+                    <span data-span="phrase" class="phrase display-none">
+                        <span class="phrase-text"></span>
+                        <span data-button="delete-phrase" class="close-phrase">x</span>
+                    </span>
+                    <span data-span="phrase" class="phrase display-none">
+                        <span class="phrase-text"></span>
+                        <span data-button="delete-phrase" class="close-phrase">x</span>
+                    </span>
+                </div>
                 <div class="section-typing-button-container">
-                    <div class="press-effect-container">
+                    <div data-container="button-generate" class="press-effect-container display-none">
                         <button data-button="generate" class="button press-effect">Generate</button>
                     </div>
                 </div>
             </div>
         </section>
-        <section data-section="t-shirt" class="section-tshirt display-none">
+        <section data-section="t-shirt" class="section-tshirt display-non            e">
             <div class="tshirt-area">
                 <img class="image-tshirt" src="assets/tshirt.png" title="product-visualisation" alt="t-shirt"/>
+                <div class="tshirt-phrases-container"></div>
             </div>
             <div class="accordion-area">
                 <div class="accordion-part active display-none">
