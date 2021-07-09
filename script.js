@@ -79,5 +79,20 @@ $(document).ready(() => {
     for (let i=0; i<phrase_delete_buttons.length; i++) {
         phrase_delete_buttons[i].addEventListener("click", delete_phrase);
     }
+
+
+    const position = { x: 0, y: 0 }
+    interact(".draggable").draggable({
+        listeners: {
+            start (event) {
+                console.log(event.type, event.target);
+            },
+            move (event) {
+                position.x += event.dx;
+                position.y += event.dy;
+                event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+            },
+        }
+    })
 });
 
