@@ -22,12 +22,34 @@ $(document).ready(() => {
         }
     }
 
-    const tshirt_phrases = document.querySelectorAll("[data-div='tshirt-phrase']");
+    const tshirt_phrases = document.querySelectorAll("[data-span='tshirt-phrase']");
     const add_phrases_to_tshirt = () => {
         for (let i=0; i<tshirt_phrases.length; i++) {
             tshirt_phrases[i].textContent = phrases_arr[i];
             tshirt_phrases[i].style.color = "#" + Math.floor(Math.random()*16777215).toString(16);
         }
+    }
+
+    const tshirt_phrases_frame = (e, isAccordion) => {
+        const active_phrase = document.querySelector(".active-phrase");
+        if (isAccordion) {
+            for (let i=0; i<tshirt_phrases.length; i++) {
+                tshirt_phrases[i].classList.remove("active-phrase");
+                if (tshirt_phrases[i].textContent === isAccordion) {
+                    tshirt_phrases[i].classList.add("active-phrase");
+                }
+            }
+        }
+        else {
+            if (active_phrase) {
+                active_phrase.classList.remove("active-phrase");
+            }
+            e.target.classList.add("active-phrase");
+            accordion_switch(null, e.target.textContent);
+        }
+    }
+    for (let i=0; i<tshirt_phrases.length; i++) {
+        tshirt_phrases[i].addEventListener("click", (e) => tshirt_phrases_frame(e));
     }
 
     const generate_phrases = () => {
@@ -80,6 +102,29 @@ $(document).ready(() => {
         phrase_delete_buttons[i].addEventListener("click", delete_phrase);
     }
 
+
+    const accordion_arrows = document.querySelectorAll("[data-image='arrow']")
+    const accordion_switch = (e, isTriggeredByTshirtPhrase) => {
+        const accordion_active_part = document.querySelector(".accordion-active");
+        if (isTriggeredByTshirtPhrase) {
+            for (let i=0; i<accordion_phrases.length; i++) {
+                accordion_phrases[i].parentNode.classList.remove("accordion-active");
+                if (accordion_phrases[i].textContent === isTriggeredByTshirtPhrase) {
+                    accordion_phrases[i].parentNode.classList.add("accordion-active");
+                }
+            }
+        }
+        else {
+            if (accordion_active_part && accordion_active_part !== e.target.parentNode.parentNode) {
+                accordion_active_part.classList.toggle("accordion-active");
+            }
+            e.target.parentNode.parentNode.classList.toggle("accordion-active");
+            tshirt_phrases_frame(null, e.target.parentNode.parentNode.childNodes[1].textContent);
+        }
+    }
+    for (let i=0; i<accordion_arrows.length; i++) {
+        accordion_arrows[i].addEventListener("click", accordion_switch);
+    }
 
     const position = { x: 0, y: 0 }
     interact(".draggable").draggable({

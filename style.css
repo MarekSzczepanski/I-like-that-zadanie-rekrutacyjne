@@ -226,6 +226,16 @@
 
 .tshirt-phrases-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 20%;
   height: 45%;
   margin: -37% 0 0 40%;
@@ -234,6 +244,11 @@
 
 .tshirt-phrase {
   margin-bottom: 1vw;
+  font-size: 1.2vw;
+}
+
+.tshirt-phrase.active-phrase {
+  border: 1px dashed;
 }
 
 .accordion-area {
@@ -256,7 +271,7 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
-.accordion-part.active {
+.accordion-part.accordion-active {
   height: 16vw;
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -264,7 +279,7 @@
   padding-top: 2vw;
 }
 
-.accordion-part.active .image-arrow {
+.accordion-part.accordion-active .image-arrow {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
