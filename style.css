@@ -247,7 +247,7 @@
   font-size: 1.2vw;
 }
 
-.tshirt-phrase.active-phrase {
+.tshirt-phrase.active-switch {
   border: 1px dashed;
 }
 
@@ -271,7 +271,7 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
-.accordion-part.accordion-active {
+.accordion-part.active-switch {
   height: 16vw;
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -279,7 +279,7 @@
   padding-top: 2vw;
 }
 
-.accordion-part.accordion-active .image-arrow {
+.accordion-part.active-switch .image-arrow {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }

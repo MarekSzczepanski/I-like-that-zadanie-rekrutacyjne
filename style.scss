@@ -181,7 +181,7 @@
     margin-bottom: 1vw;
     font-size: 1.2vw;
 }
-.tshirt-phrase.active-phrase {
+.tshirt-phrase.active-switch {
     border: 1px dashed;
 }
 .accordion-area {
@@ -198,7 +198,7 @@
     padding: 0 5% 0 15%;
     border-bottom: 1px solid $color4;
 }
-.accordion-part.accordion-active {
+.accordion-part.active-switch {
     height: 16vw;
     align-items: flex-start;
     padding-top: 2vw;
