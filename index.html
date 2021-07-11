@@ -48,13 +48,13 @@
             <div class="tshirt-area">
                 <img class="image-tshirt" src="assets/tshirt.png" title="product-visualisation" alt="t-shirt"/>
                 <div class="tshirt-phrases-container">
-                    <span data-draggable="draggable">
+                    <span data-draggable="draggable" data-count="0">
                         <span data-info="tshirt-phrase" class="tshirt-phrase"></span>
                     </span>
-                    <span data-draggable="draggable">
+                    <span data-draggable="draggable" data-count="1">
                         <span data-info="tshirt-phrase" class="tshirt-phrase"></span>
                     </span>
-                    <span data-draggable="draggable">
+                    <span data-draggable="draggable" data-count="2">
                         <span data-info="tshirt-phrase" class="tshirt-phrase"></span>
                     </span>
                 </div>
@@ -85,7 +85,7 @@
                     <input data-input="color-switcher" class="color-switcher display-none" type="range" min="0" max="100" value="50">
                 </div>
                 <div class="press-effect-container">
-                    <button class="button press-effect">Send Ajax Request With Data</button>
+                    <button data-button="ajax" class="button press-effect">Send Ajax Request With Data</button>
                 </div>
             </div>
         </section>

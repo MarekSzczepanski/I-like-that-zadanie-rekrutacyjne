@@ -1,9 +1,10 @@
 $(document).ready(() => {
     let phrases_arr = [];
+    let ajax_arr = [[],[],[]];
+    let is_phrase_moved = false;
     const phrase_spans = document.querySelectorAll("[data-span='phrase']");
     const generate_button_container = document.querySelector("[data-container='button-generate']");
     const color_switchers = document.querySelectorAll("[data-input='color-switcher']");
-
 
     const add_event_loop = (target, func) => {
         for (let i=0; i<phrase_spans.length; i++) {
@@ -148,9 +149,17 @@ $(document).ready(() => {
     interact("[data-draggable]").draggable({
         listeners: {
             move (event) {
+                is_phrase_moved = true;
                 position.x += event.dx;
                 position.y += event.dy;
                 event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+                ajax_arr[Number(event.target.dataset.count)] = [];
+                ajax_arr[Number(event.target.dataset.count)].push({
+                    text: event.target.textContent,
+                    position_x: position.x,
+                    position_y: position.y,
+                    color: event.target.style.color,
+                });
             },
         }
     })
@@ -172,4 +181,40 @@ $(document).ready(() => {
         const color_event = new Event('input');
         color_switchers[i].dispatchEvent(color_event);
     }
+
+
+    const ajax_button = document.querySelector("[data-button='ajax']")
+    const ajax_post = () => {
+        if (!is_phrase_moved) {
+            for (let i=0; i<accordion_phrases.length; i++) {
+                ajax_arr[i] = [
+                    {
+                        text: accordion_phrases[i].textContent,
+                        position_x: 0,
+                        position_y: 0,
+                        color: accordion_phrases[i].style.color,
+                    }
+                ]
+            }
+        }
+        ajax_button.parentNode.classList.remove("press-effect-container");
+        ajax_button.dataset.disable = "disable";
+        ajax_button.textContent = "Done";
+        $.ajax({
+            url: "http://localhost:5555",
+            type: "POST",
+            data: {
+                phrases: JSON.stringify(ajax_arr)
+            },
+            dataType: "json",
+            success: (response) => {
+                const resp = JSON.parse(response);
+                alert(resp.status);
+            },
+            error: (xhr, status) => {
+                alert("error");
+            },
+        });
+    }
+    ajax_button.addEventListener("click", ajax_post);
 });

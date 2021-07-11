@@ -275,3 +275,9 @@
     width: 100%;
     margin: 0;
 }
+[data-disable="disable"] {
+    position: absolute;
+    bottom: -5vw;
+    border-color: $color3;
+    color: $color3;
+}
