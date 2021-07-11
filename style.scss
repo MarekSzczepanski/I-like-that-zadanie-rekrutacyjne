@@ -236,6 +236,39 @@
     width: 1vw;
     transform: rotate(0);
 }
+.color-switcher {
+    appearance: none;
+    position: absolute;
+    height: .5vw;
+    width: 20vw;
+    transform: translateY(1300%);
+    border-radius: 0.5em;
+    outline: none;
+    background-color: rgba(0,0,0,0.1);
+    background: linear-gradient(to right, rgb(255,0,0), rgb(255,255,0), rgb(0,255,0),rgb(0,255,255),rgb(0,0,255),rgb(255,0,255),rgb(255,0,0));
+    &:focus{
+      outline: none;
+    }
+    &:active,
+    &:hover:active{
+      cursor: grabbing;
+    }
+    &::-webkit-slider-thumb {
+        border: solid 1px #000;
+        border-radius: .4em;
+        background-color: #fff;
+    } 
+    &::-moz-range-thumb {
+        border: solid 1px #000;
+        border-radius: .4em;
+        background-color: #fff;
+    }
+    &::-ms-thumb {
+        border: solid 1px #000;
+        border-radius: .4em;
+        background-color: #fff;
+    }
+  }
 .accordion-area > .press-effect-container {
     position: absolute;
     bottom: -3.8vw;

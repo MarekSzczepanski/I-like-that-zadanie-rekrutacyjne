@@ -2,6 +2,7 @@ $(document).ready(() => {
     let phrases_arr = [];
     const phrase_spans = document.querySelectorAll("[data-span='phrase']");
     const generate_button_container = document.querySelector("[data-container='button-generate']");
+    const color_switchers = document.querySelectorAll("[data-input='color-switcher']");
 
 
     const add_event_loop = (target, func) => {
@@ -73,11 +74,19 @@ $(document).ready(() => {
     }
 
 
+    const reset_colors = () => {
+        for (let i=0; i<accordion_phrases.length; i++) {
+            accordion_phrases[i].style.color = "";
+        }
+    }
+
+
     const generate_button = document.querySelector("[data-button='generate']");
     const generate_phrases = () => {
         fade_animation();
         add_phrases_to_target(accordion_phrases);
         add_phrases_to_target(tshirt_phrases);
+        reset_colors();
     }
     generate_button.addEventListener("click", generate_phrases);
     
@@ -91,15 +100,25 @@ $(document).ready(() => {
                 active_switches[i].classList.remove("active-switch");
             }
         }
+        const remove_color_switches = () => {
+            for (let i=0; i<color_switchers.length; i++) {
+                color_switchers[i].classList.add("display-none");
+                color_switchers[i].dataset.visible = "";
+            }
+        }
         if (e.target.classList.contains("active-switch") || e.target.parentNode.parentNode.classList.contains("active-switch")) {
             remove_active_phrases();
+            remove_color_switches();
             return;
         }
         remove_active_phrases();
+        remove_color_switches();
         let active_text;
         const activate_chosen_phrase = () => {
             if (e.target.dataset.info === "arrow") {
                 e.target.parentNode.parentNode.classList.add("active-switch");
+                e.target.parentNode.nextElementSibling.classList.remove("display-none"); //color switcher
+                e.target.parentNode.nextElementSibling.dataset.visible = "visible";
                 active_text = e.target.parentNode.previousElementSibling.textContent;
             }
             else {
@@ -112,6 +131,10 @@ $(document).ready(() => {
                 if (phrases_to_check[i].textContent === active_text 
                 || phrases_to_check[i].childNodes[1] && phrases_to_check[i].childNodes[1].textContent === active_text) {
                     phrases_to_check[i].classList.add("active-switch");
+                    color_switchers[i].dataset.visible = "visible";
+                }
+                if (color_switchers[i].dataset.visible === "visible") {
+                    color_switchers[i].classList.remove("display-none");
                 }
             }
         }
@@ -131,5 +154,22 @@ $(document).ready(() => {
             },
         }
     })
-});
 
+
+    let lock_initial_color_changes = 0;
+    for (let i=0; i<phrase_spans.length; i++) {
+        color_switchers[i].addEventListener('input', function(e) {
+            if (lock_initial_color_changes < color_switchers.length) {
+                lock_initial_color_changes++;
+                return;
+            }
+            const hue = ((this.value/100)*360).toFixed(0);
+            const hsl = "hsl("+ hue + ", 100%, 50%)";
+            color_switchers[i].style.color = hsl
+            accordion_phrases[i].style.color = hsl;
+            tshirt_phrases[i].style.color = hsl;
+        });
+        const color_event = new Event('input');
+        color_switchers[i].dispatchEvent(color_event);
+    }
+});

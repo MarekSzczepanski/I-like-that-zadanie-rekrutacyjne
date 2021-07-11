@@ -331,6 +331,49 @@
           transform: rotate(0);
 }
 
+.color-switcher {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  height: .5vw;
+  width: 20vw;
+  -webkit-transform: translateY(1300%);
+          transform: translateY(1300%);
+  border-radius: 0.5em;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(red), color-stop(yellow), color-stop(lime), color-stop(cyan), color-stop(blue), color-stop(magenta), to(red));
+  background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+}
+
+.color-switcher:focus {
+  outline: none;
+}
+
+.color-switcher:active, .color-switcher:hover:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.color-switcher::-webkit-slider-thumb {
+  border: solid 1px #000;
+  border-radius: .4em;
+  background-color: #fff;
+}
+
+.color-switcher::-moz-range-thumb {
+  border: solid 1px #000;
+  border-radius: .4em;
+  background-color: #fff;
+}
+
+.color-switcher::-ms-thumb {
+  border: solid 1px #000;
+  border-radius: .4em;
+  background-color: #fff;
+}
+
 .accordion-area > .press-effect-container {
   position: absolute;
   bottom: -3.8vw;
